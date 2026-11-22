@@ -13,15 +13,14 @@ orders_example = [
 
 
 def calculate_average_order_value(orders):
-    num_of_orders = len(orders)
-    sum_of_orders = 0
+    if not orders:
+        print("Nothing to count")
+        return 0
 
-    for order in orders:
-        sum_of_orders += order["amount"]
+    total = sum(order["amount"] for order in orders)
+    average = total / len(orders)
 
-    average = sum_of_orders / num_of_orders
-
-    print(f"For {num_of_orders} orders average is {average}")
+    print(f"For {len(orders)} orders average is {average}")
     return average
 
 
